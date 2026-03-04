@@ -9,7 +9,7 @@ Unlike typical conversational AI that merely answers queries or fulfills direct 
 ## 🧠 Core Philosophy & Architecture
 
 DeepThinking operates on a few core principles that differentiate it from standard AI interactions:
-1. **Statefulness over statelessness**: The framework persists your session state on disk. You can explore a thought, type `/exit`, close your laptop, and return days later with `/deep` to pick up exactly where you left off.
+1. **Statefulness over statelessness**: The framework persists your session state on disk. You can explore a thought, type `/deepend`, close your laptop, and return days later with `/deep` to pick up exactly where you left off.
 2. **Questions over Answers**: The framework strictly avoids giving raw advice or lists of ideas (which it considers "lazy thinking"). Instead, it provides frameworks, provocations, and lateral reflections.
 3. **Adaptive Entropy Control (System 3)**: DeepThinking dynamically detects whether you are in a state of "friction" (short answers, defensive tone) or "flow" (long answers, energy). It adjusts its questioning style silently, either expanding the entropy (asking lateral, weird questions to unblock you) or compressing the entropy (forcing concreteness to drive action).
 
@@ -71,7 +71,7 @@ stateDiagram-v2
     Synthesis --> [*]
     
     note right of Execution
-        User can type `/exit` at ANY state
+        User can type `/deepend` at ANY state
         to safely freeze execution.
         Typing `/deep` resumes exactly here.
     end note
@@ -202,7 +202,7 @@ erDiagram
 1. **Start a new reflection**:
    `/deep I'm considering leaving my job to start a company, but I'm paralyzed.`
 2. **Pause mid-session**:
-   Type `/exit` whenever you need a break. Your state in the exact layer/module is safely frozen.
+   Type `/deepend` whenever you need a break. Your state in the exact layer/module is safely frozen.
 3. **Resume later**:
    Type `/deep` with no arguments, and the AI will pick up the conversation from exactly where you left off.
 4. **Review Evolution Proposals**:
@@ -245,8 +245,8 @@ deep
 deep
 
 # Commands during a session
-/exit      # Pause and save state (resume later with `deep`)
-Ctrl+C     # Same as /exit
+/deepend      # Pause and save state (resume later with `deep`)
+Ctrl+C     # Same as /deepend
 next       # Advance to the next module (also: done, fim, próximo)
 ```
 

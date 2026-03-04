@@ -104,7 +104,7 @@ def prompt_input(hint="you"):
         raw = input(f"  {gray('›')} {C.WHITE}")
     except (EOFError, KeyboardInterrupt):
         print(C.RESET)
-        return "/exit"
+        return "/deepend"
     finally:
         print(C.RESET, end="")
     return raw.strip()
@@ -181,7 +181,7 @@ def run_excavation(session):
         agent_say(question)
 
         user_input = prompt_input()
-        if user_input.lower() in ("/exit", "/quit", "exit", "quit"):
+        if user_input.lower() in ("/deepend", "/deepend", "exit", "quit"):
             return "exit"
 
         layers_data[layer] = user_input
@@ -233,7 +233,7 @@ def run_alignment(session):
     agent_say(read)
 
     user_input = prompt_input()
-    if user_input.lower() in ("/exit", "exit"):
+    if user_input.lower() in ("/deepend", "exit"):
         return "exit"
 
     lower = user_input.lower()
@@ -312,7 +312,7 @@ def run_architecture(session):
     agent_say("Not rigid. We adapt as we go. About 4-6 exchanges per phase.\n\nReady?")
 
     user_input = prompt_input()
-    if user_input.lower() in ("/exit", "exit"):
+    if user_input.lower() in ("/deepend", "exit"):
         return "exit"
 
     # Save pipeline
@@ -375,7 +375,7 @@ def run_execution(session):
             prompt_index += 1
 
             user_input = prompt_input()
-            if user_input.lower() in ("/exit", "exit"):
+            if user_input.lower() in ("/deepend", "exit"):
                 return "exit"
             if user_input.lower() in ("next", "done", "proximo", "próximo", "fim"):
                 break
@@ -392,7 +392,7 @@ def run_execution(session):
             if any(s in user_input.lower() for s in lazy_signals) and exchanges < 3:
                 agent_say("That sounds like a warm-up answer. What's the real one?")
                 user_input2 = prompt_input()
-                if user_input2.lower() not in ("/exit", "exit"):
+                if user_input2.lower() not in ("/deepend", "exit"):
                     insights.append(user_input2[:150])
                     memory("store", f"{mod_id},breakthrough", user_input2[:200])
 
@@ -515,7 +515,7 @@ def _build_action_plan(insights):
 def print_header():
     ruler("═", C.CYAN)
     print(f"\n  {C.CYAN}{C.BOLD}◆  DeepThinking{C.RESET}  {dim('stateful cognitive framework')}")
-    print(f"  {dim('Commands: /exit to pause · /deep to resume · Ctrl+C to quit')}\n")
+    print(f"  {dim('Commands: /deepend to pause · /deep to resume · Ctrl+C to quit')}\n")
     ruler("═", C.CYAN)
 
 def main():
@@ -532,7 +532,7 @@ def main():
             print()
             agent_say("What would you like to explore?")
             topic_arg = prompt_input()
-            if topic_arg.lower() in ("/exit", "exit", ""):
+            if topic_arg.lower() in ("/deepend", "exit", ""):
                 print()
                 agent_aside("Nothing started. Come back anytime.")
                 return

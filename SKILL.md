@@ -162,7 +162,7 @@ Present to user:
 Phase 1: [Module] — [why, specific to them]
 Phase 2: [Module] — [why]
 ...
-Not rigid. We adapt. ~25 min. /exit to pause. Ready?"
+Not rigid. We adapt. ~25 min. /deepend to pause. Ready?"
 
 On confirmation:
 ```bash
@@ -287,9 +287,9 @@ Archive session:
 python3 {baseDir}/scripts/state.py archive
 ```
 
-## /exit command
+## /deepend command
 
-If user types `/exit` at any point:
+If user types `/deepend` at any point:
 
 ```bash
 python3 {baseDir}/scripts/state.py status
