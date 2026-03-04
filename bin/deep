@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# bin/deep — launcher for the DeepThinking TUI
+# Usage: ./bin/deep [topic]
+#
+# Install on VPS:
+#   chmod +x bin/deep
+#   sudo ln -s $(pwd)/bin/deep /usr/local/bin/deep
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+exec python3 "$SCRIPT_DIR/scripts/tui.py" "$@"
